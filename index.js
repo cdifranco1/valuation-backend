@@ -9,8 +9,16 @@ const port = process.env.PORT || 5000
 const server = express()
 
 //app-level middleware
+const whitelist = ['http://localhost:3000', 'https://valuation-gamma.vercel.app' ]
+
 server.use(cors({
-  origin: 'http://localhost:3000',
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1){
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   credentials: true
 }))
 server.use(express.json())
