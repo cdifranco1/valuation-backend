@@ -66,14 +66,14 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.delete('/', async (req, res) => {
-    const { userId } = req
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params
 
     try {
-      const dcfs = await DCF.find({ userId: userId })
-                            .select({ genInputs: 1, createdAt: 1, updatedAt: 1})
+      const count = await DCF.deleteOne({ _id: id })
+      console.log(count)
 
-      res.status(200).json(dcfs)
+      res.status(200).json({ message: `${count.deletedCount} models deleted from database.`})
 
     } catch (err) {
       res.status(500).json({ error: err.message })
