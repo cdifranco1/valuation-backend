@@ -1,5 +1,4 @@
 # valuation-backend
 
-
-<a src="https://github.com/cdifranco1/valuation-frontend">Frontend Repository<a/>
+[Frontend Repository](https://github.com/cdifranco1/valuation-frontend)
 
