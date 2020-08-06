@@ -215,6 +215,7 @@ function valuation(fcf, dcf, wacc, ltgr, pvFactors){
 }
 
 function process(inputs){
+  console.log(inputs)
   const { userId } = inputs
   const { wacc, ltgr } = inputs.valAssumps
 

@@ -8,6 +8,7 @@ const authorization = require('../middleware/authorization')
 router.use('/', authorization)
 
 router.post('/', async (req, res) => {
+    console.log(req.body)
     let dcfModel = process(req.body)
     dcfModel.userId = req.userId
     console.log(dcfModel)
