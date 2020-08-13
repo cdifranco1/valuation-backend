@@ -7,7 +7,7 @@ function validateLength(arr){
 const arrValidatorMsg = "Each forecast should have at least one value."
 
 const DCF = mongoose.model('DCF', new mongoose.Schema({
-  //userId doesn't need to be reference ID because Okta auth
+  //userId doesn't need to be reference ID because Amplify auth
   userId: {
     type: String,
     required: true

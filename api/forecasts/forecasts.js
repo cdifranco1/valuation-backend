@@ -1,4 +1,4 @@
-const utils = require('./utils')
+const utils = require('./base-functions')
 const moment = require('moment')
 
 
@@ -51,39 +51,6 @@ function prepForecasts(inputObj){
    }
  }
 }
-
-// function grossProfit(revenues, cogs){
-//   return revenues - cogs
-// }
-
-// function ebitda(grossProfit, opex){
-//   return grossProfit - opex
-// }
-
-// function ebit(ebitda, depreciation, amortization){
-//   return ebitda - depreciation - amortization
-// }
-
-// function taxes(ebit, taxRate){
-//   if (ebit <= 0){
-//     return 0
-//   }
-
-//   return ebit * taxRate
-// }
-
-// function getLineItemArrays(forecastObject, ...lineItems){
-//   const returnObject = {}
-
-//   lineItems.forEach(el => returnObject[el] = forecastObject[el])
-
-//   return returnObject
-// }
-
-// function calcLineItem(lineItemArray, calcFunction, forecasts){
-//   getLineItemArrays(forecasts)
-// }
-
 
 function buildForecasts(inputObj){
   const { forecasts, valAssumps, genInputs } = inputObj
