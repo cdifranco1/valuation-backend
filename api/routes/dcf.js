@@ -1,11 +1,11 @@
-const process = require('../actions/forecasts')
+const process = require('../forecasts/forecasts')
 const { DCF } = require('../models/dcf-model')
 
 const express = require('express')
 const router = express.Router()
-const authorization = require('../middleware/authorization')
+const validateCognito = require("../middleware/verifyCognito")
 
-router.use('/', authorization)
+router.use('/', validateCognito)
 
 router.post('/', async (req, res) => {
     let dcfModel = process(req.body)
@@ -15,7 +15,6 @@ router.post('/', async (req, res) => {
     try {
       const dcf = new DCF(dcfModel)
       const saved = await dcf.save()
-      // console.log(saved)
       res.status(200).json(saved)
 
     } catch (err) {
